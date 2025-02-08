@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Seçimi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="text-center">{{ title }}</h1>
+
+                <form action="/download" method="post">
+                    <input type="hidden" name="url" value="{{ url }}">
+
+                    <div class="mb-3">
+                        <label for="format_type" class="form-label">Format Seçin:</label>
+                        <select id="format_type" name="format_type" class="form-select" required onchange="toggleResolution(this.value)">
+                            <option value="mp3">MP3</option>
+                            <option value="mp4">MP4</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3" id="resolution_section" style="display: none;">
+                        <label for="resolution" class="form-label">Çözünürlük Seçin:</label>
+                        <select id="resolution" name="resolution" class="form-select">
+                            {% for res in resolutions %}
+                                <option value="{{ res }}">{{ res }}p</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">İndir</button>
+                </form>
+
+                <button onclick="window.location.href='/'" class="btn btn-primary w-100 mt-3">Yeni URL</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleResolution(format) {
+            const resolutionSection = document.getElementById('resolution_section');
+            resolutionSection.style.display = (format === 'mp4') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

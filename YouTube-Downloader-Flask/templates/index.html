@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video İndirici</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="text-center">YouTube Video İndirici</h1>
+                <form action="/formats" method="post">
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Video URL'sini Girin:</label>
+                        <input type="text" id="url" name="url" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Formatları Listele</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
